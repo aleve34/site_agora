@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        label {
+            font-weight: bold;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Page d'inscription</h2>
+        <form id="signupForm" action="inscription.php" method="POST">
+            <label for="nom">Nom :</label>
+            <input type="text" id="nom" name="nom" required><br><br>
+
+            <label for="prenom">Prénom :</label>
+            <input type="text" id="prenom" name="prenom" required><br><br>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="motdepasse">Mot de passe :</label>
+            <input type="password" id="motdepasse" name="motdepasse" required><br><br>
+
+            <label for="role">Choisissez votre rôle :</label>
+            <select name="role" id="role" required>
+                <option value="acheteur">Acheteur</option>
+                <option value="vendeur">Vendeur</option>
+            </select><br><br>
+
+            <div id="vendeurFields" style="display:none;">
+                <label for="pseudo">Pseudo vendeur :</label>
+                <input type="text" id="pseudo" name="pseudo" required><br><br>
+            </div>
+
+            <button type="submit">S'inscrire</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('role').addEventListener('change', function() {
+            var role = this.value;
+            var pseudoField = document.getElementById('pseudo');
+            if (role === 'vendeur') {
+                document.getElementById('vendeurFields').style.display = 'block';
+                pseudoField.disabled = false;
+            } else {
+                document.getElementById('vendeurFields').style.display = 'none';
+                pseudoField.disabled = true;
+            }
+        });
+    </script>
+</body>
+</html>

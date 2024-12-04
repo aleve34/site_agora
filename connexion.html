@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+        }
+        h2 {
+            text-align: center;
+        }
+        .input-field {
+            margin-bottom: 15px;
+            width: 100%;
+        }
+        .input-field input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+        .error-message {
+            color: red;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        .link {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Connexion</h2>
+
+        <!-- Affichage de l'erreur -->
+        <?php if (!empty($error_message)) { ?>
+            <div class="error-message"><?php echo $error_message; ?></div>
+        <?php } ?>
+
+        <form method="POST" action="connexion.php">
+
+            <div class="input-field">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="input-field">
+                <input type="password" name="motdepasse" placeholder="Mot de passe" required>
+            </div>
+
+            <div class="input-field">
+                <button type="submit" class="submit-btn">Se connecter</button>
+            </div>
+        </form>
+
+        <div class="link">
+            <a href="inscription.html">Pas encore inscrit ? Créez un compte</a>
+        </div>
+    </div>
+
+</body>
+</html>
